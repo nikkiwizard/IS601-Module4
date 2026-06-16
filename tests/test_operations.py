@@ -92,6 +92,13 @@ def test_power(a, b, expected):
     assert result == expected, f"Expected {a} ** {b} to be {expected}, got {result}"
 
 
+def test_division_with_zero_divisor():
+    """Verify dividing by zero raises the expected ValueError."""
+    with pytest.raises(ValueError) as exc_info:
+        Operation.division(10.0, 0.0)
+    assert str(exc_info.value) == "Division by zero is not allowed."
+
+
 # -----------------------------------------------------------------------------------
 # Test Invalid Input Types (Negative Testing)
 # -----------------------------------------------------------------------------------
